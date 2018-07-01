@@ -12,13 +12,14 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Nuxt.js project' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Open+Sans:400,700'},
     ]
   },
   /*
   ** Customize the progress bar color
   */
-  loading: { color: '#3B8070' },
+  loading: { color: '#ed2124' },
   /*
   ** Build configuration
   */
@@ -40,5 +41,12 @@ module.exports = {
   env: {
     CTF_SPACE_ID: config.CTF_SPACE_ID,
     CTF_CDA_ACCESS_TOKEN: config.CTF_CDA_ACCESS_TOKEN,
-  }
+  },
+  modules: [
+
+    ['nuxt-sass-resources-loader', [
+        '@/assets/variables.scss',
+    ]],
+
+  ],
 }
