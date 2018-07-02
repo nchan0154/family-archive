@@ -16,7 +16,8 @@
     "contentful": "^6.1.1",
     "nuxt": "^1.0.0",
     "nuxt-sass-resources-loader": "^2.0.2",
-    "sass-loader": "^7.0.3"
+    "sass-loader": "^7.0.3",
+    "v-tooltip": "^2.0.0-rc.33"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",

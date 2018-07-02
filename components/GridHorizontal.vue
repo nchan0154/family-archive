@@ -12,14 +12,17 @@
           {{ decade }}
         </span>
       </nuxt-link>
-      <div
-        class="grid__item"
+      <nuxt-link
+        v-tooltip.right-start="{ content: getImageCaption(photo), popperOptions: { style: {background: 'red'} } } "
+        class="grid__item grid__item--photo"
         v-for="photo in group"
         :key="photo.photo.fields.title"
         :style="{ backgroundImage: `url('${photo.photo.fields.file.url}?w=200')`}"
+        :to="{name: 'photo-id', params: { id: photo.id } }"
       >
-      </div>
+      </nuxt-link>
     </template>
+    <div class="grid__overlay"></div>
   </div>
 </template>
 
@@ -36,20 +39,22 @@ export default {
   position: relative;
   margin-top: -1.5rem;
   margin-left: -1.5rem;
+}
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    width: calc(100% + 1rem);
-    height: 1px;
-    grid-row: 1 / 1;
-    background-color: $red;
-  }
+.grid__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.7);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 0;
 }
 
 .grid__item {
-  position: relative;
   display: inline-block;
   width: 7.5rem;
   margin-top: 1.5rem;
@@ -58,6 +63,21 @@ export default {
   background-color: #fff;
   background-size: cover;
   background-position: center;
+  -webkit-backface-visibility: hidden;
+}
+
+.grid__item--year {
+  position: relative;
+}
+
+.grid__item--photo {
+  &:hover, &:active, &:focus {
+    z-index: 1;
+
+    & ~ .grid__overlay {
+      opacity: 1;
+    }
+  }
 }
 
 .grid__text {
@@ -70,25 +90,18 @@ export default {
   text-decoration: none;
 }
 
-@media (min-width: 40rem) {
-  .grid {
-    &::before {
-      width: calc(100% + 2rem)
-    }
+.tooltip {
+  margin: 0 1.5rem;
+  padding: 0.5rem;
+  background: #fff;
+  border: 1px solid $red;
+  font-size: 0.875rem;
+  color: $red;
+}
 
-    &::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      right: -2rem;
-      grid-row: 1 / 1;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 0.313rem 0 0.313rem 1rem;
-      border-color: transparent transparent transparent $red;
-      transform: translateY(-50%);
-    }
+@media (min-width: 40rem) {
+  .tooltip {
+    padding: 0.75rem;
   }
 }
 
@@ -100,6 +113,17 @@ export default {
     grid-template-columns: repeat(auto-fill, minmax(5rem, 1fr));
     justify-content: flex-start;
     margin: 0;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: calc(100% + 1rem);
+      height: 1px;
+      grid-row: 1 / 1;
+      background-color: $red;
+      z-index: -1;
+    }
   }
 
   .grid__item {
@@ -109,9 +133,39 @@ export default {
     height: auto;
   }
 
+  @media (min-width: 48em) {
+    .grid {
+      &::before {
+        width: calc(100% + 2rem)
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: -2rem;
+        grid-row: 1 / 1;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0.313rem 0 0.313rem 1rem;
+        border-color: transparent transparent transparent $red;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
   @media (min-width: 62em) {
     .grid {
       grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr));
+
+    }
+  }
+
+  @media (min-width: 85em) {
+    .tooltip {
+      min-width: 10rem;
+      min-height: 8.063rem;
     }
   }
 }
