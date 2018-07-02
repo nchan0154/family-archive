@@ -1,30 +1,12 @@
 <template>
   <main class="container">
-    <div>
-      <app-logo/>
-      <h1 class="title">
-        family-archive
-      </h1>
-      <h2 class="subtitle">
-        Nuxt.js project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
-      </div>
-    </div>
+    <GridHorizontal :photos="photos" />
   </main>
 </template>
 
 <script>
 import {createClient} from '~/plugins/contentful.js';
-import AppLogo from '~/components/AppLogo.vue';
+import GridHorizontal from '~/components/GridHorizontal.vue';
 
 const client = createClient();
 
@@ -55,7 +37,7 @@ export default {
     }).catch(console.error)
   },
   components: {
-    AppLogo
+    GridHorizontal
   }
 }
 </script>

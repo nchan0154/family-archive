@@ -24,6 +24,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    vendor: ['contentful'],
     /*
     ** Run ESLint on save
     */

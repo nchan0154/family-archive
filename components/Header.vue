@@ -109,9 +109,8 @@ export default {
 }
 
 .site-header__cta {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.75rem;
+  float: right;
+  margin-top: 0.75rem;
   color: $red;
   font-size: 1.125rem;
   text-decoration: none;
@@ -152,9 +151,7 @@ export default {
   }
 
   .site-header__cta {
-    position: static;
     margin-top: 1.25rem;
-    float: right;
   }
 
   .site-header__nav {
