@@ -1,16 +1,18 @@
 <template>
-  <main class="container">
-    <GridHorizontal :photos="photos" />
-  </main>
+  <GridHorizontal :photos="photos" />
 </template>
 
 <script>
 import {createClient} from '~/plugins/contentful.js';
+import constants from '~/constants/data.js';
 import GridHorizontal from '~/components/GridHorizontal.vue';
 
 const client = createClient();
 
 export default {
+  validate ({ params }) {
+    return constants.years.indexOf(parseInt(params.decade)) > -1;
+  },
   asyncData ({env, route}) {
     return Promise.all([
       client.getEntries({

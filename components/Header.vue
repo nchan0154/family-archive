@@ -143,7 +143,9 @@ export default {
 
 @media (min-width: 40em) {
   .site-header {
+    position: relative;
     padding-top: 4rem;
+    z-index: 1;
   }
 
   .site-header__title {

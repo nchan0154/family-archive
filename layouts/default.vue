@@ -1,7 +1,9 @@
 <template>
   <div>
     <Header />
-    <nuxt/>
+    <main class="container" tabindex="0" ref="main">
+      <nuxt/>
+    </main>
   </div>
 </template>
 
@@ -9,6 +11,11 @@
 import Header from '~/components/Header.vue';
 
 export default {
+  watch: {
+    '$route.path': function() {
+      this.$refs.main.focus();
+    }
+  },
   components: {
     Header
   }
@@ -27,6 +34,10 @@ html, body {
 
 * {
   font-family: "Open Sans", sans-serif;
+}
+
+main {
+  outline: none;
 }
 
 a {

@@ -1,7 +1,5 @@
 <template>
-  <main class="container">
-    <GridHorizontal :photos="photos" />
-  </main>
+  <GridHorizontal :photos="photos" />
 </template>
 
 <script>
