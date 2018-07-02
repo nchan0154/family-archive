@@ -17,7 +17,7 @@
             >
               <nuxt-link
                 class="dropdown__link"
-                :to="{name: 'time-year', params: { year: year } }"
+                :to="{name: 'time-decade', params: { decade: year } }"
               >
                 {{ year }}s
               </nuxt-link>

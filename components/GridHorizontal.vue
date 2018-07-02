@@ -1,21 +1,21 @@
 <template>
   <div class="grid">
     <template
-      v-for="(group, year) in photos"
+      v-for="(group, decade) in photos"
     >
       <nuxt-link
         class="grid__item grid__item--year"
-        :key="year"
-        :to="{name: 'time-year', params: { year: year } }"
+        :key="decade"
+        :to="{name: 'time-decade', params: { decade: decade } }"
       >
         <span class="grid__text">
-          {{ year }}
+          {{ decade }}
         </span>
       </nuxt-link>
       <div
         class="grid__item"
         v-for="photo in group"
-        :key="photo.photo"
+        :key="photo.photo.fields.title"
         :style="{ backgroundImage: `url('${photo.photo.fields.file.url}?w=200')`}"
       >
       </div>
@@ -97,7 +97,7 @@ export default {
     display: grid;
     grid-gap: 1.5rem;
     gap: 1.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(5rem, 1fr));
     justify-content: flex-start;
     margin: 0;
   }
@@ -111,7 +111,7 @@ export default {
 
   @media (min-width: 62em) {
     .grid {
-      grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr));
     }
   }
 }

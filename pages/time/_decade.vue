@@ -11,10 +11,11 @@ import GridHorizontal from '~/components/GridHorizontal.vue';
 const client = createClient();
 
 export default {
-  asyncData ({env}) {
+  asyncData ({env, route}) {
     return Promise.all([
       client.getEntries({
         'content_type': 'photo',
+        'fields.decade': route.params.decade,
       }),
     ]).then(([photos]) => {
       const items = photos.items.map(({fields, sys}) => {
@@ -22,19 +23,11 @@ export default {
         return fields;
       });
 
-      let groupedByDecade = {};
-      items.map(item => {
-        let list = groupedByDecade[item.decade];
-
-        if(list){
-            list.push(item);
-        } else{
-           groupedByDecade[item.decade] = [item];
-        }
-      });
+      let decadePhotos = {};
+      decadePhotos[route.params.decade] = items;
 
       return {
-        photos: groupedByDecade,
+        photos: decadePhotos,
       }
     }).catch(console.error)
   },
