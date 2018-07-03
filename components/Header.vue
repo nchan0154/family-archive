@@ -132,7 +132,7 @@ export default {
   text-decoration: none;
   color: #000;
 
-  &:hover, &:active, &:focus, &.nuxt-link-active {
+  &:hover, &:active, &:focus, &.nuxt-link-exact-active {
     color: $red;
   }
 }

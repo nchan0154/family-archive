@@ -28,6 +28,10 @@ html, body {
   line-height: 1.5;
 }
 
+body {
+  margin-bottom: 2rem;
+}
+
 *, *:before, *:after {
   box-sizing: border-box;
 }
