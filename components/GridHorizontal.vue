@@ -13,12 +13,12 @@
         </span>
       </nuxt-link>
       <nuxt-link
-        v-tooltip.right-start="{ content: getImageCaption(photo), popperOptions: { style: {background: 'red'} } } "
+        v-tooltip.right-start="{ content: getImageCaption(photo), popperOptions: { style: { background: 'red' } } } "
         class="grid__item grid__item--photo"
         v-for="photo in group"
         :key="photo.photo.fields.title"
         :style="{ backgroundImage: `url('${photo.photo.fields.file.url}?w=200')`}"
-        :to="{name: 'photo-id', params: { id: photo.id } }"
+        :to="{ name: 'photo-id', params: { id: photo.id } }"
       >
       </nuxt-link>
     </template>
@@ -71,8 +71,11 @@ export default {
 }
 
 .grid__item--photo {
+  border: 1px solid #fff;
+
   &:hover, &:active, &:focus {
     z-index: 1;
+    border-color: $red;
 
     & ~ .grid__overlay {
       opacity: 1;
@@ -91,7 +94,7 @@ export default {
 }
 
 .tooltip {
-  margin: 0 1.5rem;
+  margin: 0 1.5625rem;
   padding: 0.5rem;
   background: #fff;
   border: 1px solid $red;
@@ -165,7 +168,7 @@ export default {
   @media (min-width: 85em) {
     .tooltip {
       min-width: 10rem;
-      min-height: 8.063rem;
+      min-height: 8.125rem;
     }
   }
 }

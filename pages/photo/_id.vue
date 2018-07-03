@@ -95,6 +95,11 @@ export default {
   color: $red;
   border: 1px solid $red;
   text-decoration: none;
+
+  &:hover, &:active, &:focus {
+    color: #fff;
+    background-color: $red;
+  }
 }
 
 @media (min-width: 48em) {

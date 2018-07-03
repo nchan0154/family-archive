@@ -44,6 +44,10 @@ main {
   outline: none;
 }
 
+img {
+  max-width: 100%;
+}
+
 a {
   transition: all 0.3s ease;
 }

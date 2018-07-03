@@ -19,5 +19,5 @@ export default  {
     'Melbourne',
     'Toishan',
     'San Francisco'
-  ]
+  ],
 }
