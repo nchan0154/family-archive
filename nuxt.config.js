@@ -37,13 +37,17 @@ module.exports = {
       }
     },
   },
+  env: {
+    CTF_SPACE_ID: process.env.CTF_SPACE_ID,
+    CTF_CDA_ACCESS_TOKEN: process.env.CTF_CDA_ACCESS_TOKEN,
+  },
   modules: [
     ['nuxt-sass-resources-loader', [
         '@/assets/variables.scss',
     ]],
   ],
   plugins: [
-    { src: '~/plugins/v-tooltip.js', ssr: false },
+    { src: '~/plugins/v-tooltip.js' },
     { src: '~/plugins/caption.js' },
   ],
 }
