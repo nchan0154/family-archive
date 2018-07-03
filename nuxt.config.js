@@ -1,5 +1,3 @@
-const config = require('./.contentful.json');
-
 module.exports = {
   /*
   ** Headers of the page
@@ -38,10 +36,6 @@ module.exports = {
         })
       }
     },
-  },
-  env: {
-    CTF_SPACE_ID: config.CTF_SPACE_ID,
-    CTF_CDA_ACCESS_TOKEN: config.CTF_CDA_ACCESS_TOKEN,
   },
   modules: [
     ['nuxt-sass-resources-loader', [
