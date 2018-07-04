@@ -8,7 +8,7 @@ Vue.mixin({
       if (photo.year) {
         descriptionParts.push(photo.year);
       } else {
-        descriptionParts.push(photo.decade)
+        descriptionParts.push(photo.decade + 's')
       }
       if (photo.place) {
         descriptionParts.push(photo.place.fields.name + ', ' + photo.place.fields.country);

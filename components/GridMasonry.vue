@@ -26,6 +26,7 @@ export default {
 
 <style lang="scss">
 .masonry {
+  position: relative;
   column-gap: 1.5rem;
   column-width: 18rem;
 }
