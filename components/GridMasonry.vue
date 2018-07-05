@@ -7,12 +7,12 @@
       :to="{ name: 'photo-id', params: { id: photo.sys.id } }"
     >
       <figure class="masonry__item">
-        <img class="masonry__image" :src="`${photo.fields.photo.fields.file.url}?w=600`" />
+        <img class="masonry__image" :src="`${photo.fields.photo.fields.file.url}?w=500`" />
         <figcaption class="masonry__caption" v-html="getImageCaption(photo.fields)">
         </figcaption>
       </figure>
     </nuxt-link>
-    <div class="masonry__overlay"></div>
+    <div class="overlay"></div>
   </div>
 </template>
 
@@ -42,7 +42,7 @@ export default {
       transform: none;
     }
 
-    & ~ .masonry__overlay {
+    & ~ .overlay {
       opacity: 1;
     }
   }
@@ -69,16 +69,4 @@ export default {
   transition: all 0.3s ease;
 }
 
-.masonry__overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(255, 255, 255, 0.5);
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.3s ease;
-  z-index: 0;
-}
 </style>

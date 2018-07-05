@@ -22,7 +22,7 @@
       >
       </nuxt-link>
     </template>
-    <div class="grid__overlay"></div>
+    <div class="overlay"></div>
   </div>
 </template>
 
@@ -39,19 +39,6 @@ export default {
   position: relative;
   margin-top: -1.5rem;
   margin-left: -1.5rem;
-}
-
-.grid__overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(255, 255, 255, 0.5);
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.3s ease;
-  z-index: 0;
 }
 
 .grid__item {
@@ -77,7 +64,7 @@ export default {
     z-index: 1;
     border-color: $red;
 
-    & ~ .grid__overlay {
+    & ~ .overlay {
       opacity: 1;
     }
   }
