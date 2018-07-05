@@ -9,7 +9,7 @@
       <div class="tags">
         <span class="tags__label">tags:</span>
         <nuxt-link
-          :to="{name: 'person-name', params: { name: person.fields.name.toLowerCase() } }"
+          :to="{name: 'person-name', params: { name: slugify(person.fields.name) } }"
           class="tags__tag"
           :key="person.fields.name"
           v-for="person in photo.fields.people"
@@ -24,7 +24,7 @@
         </nuxt-link>
         <template v-if="photo.fields.place">
           <nuxt-link
-            :to="{name: 'place-name', params: { name: photo.fields.place.fields.name.toLowerCase() } }"
+            :to="{name: 'place-name', params: { name: slugify(photo.fields.place.fields.name) } }"
             class="tags__tag"
           >
             {{ photo.fields.place.fields.name }}

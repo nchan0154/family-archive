@@ -34,7 +34,7 @@
             >
               <nuxt-link
                 class="dropdown__link"
-                :to="{name: 'person-name', params: { name: person.toLowerCase() } }"
+                :to="{name: 'person-name', params: { name: slugify(person) } }"
               >
                 {{ person }}
               </nuxt-link>
@@ -51,7 +51,7 @@
             >
               <nuxt-link
                 class="dropdown__link"
-                :to="{name: 'place-name', params: { name: place.toLowerCase() } }"
+                :to="{name: 'place-name', params: { name: slugify(place) } }"
               >
                 {{ place }}
               </nuxt-link>
@@ -65,6 +65,7 @@
 
 <script>
 import constants from '~/constants/data.js';
+import slugify from '~/assets/helpers.js';
 
 export default {
   data: function() {

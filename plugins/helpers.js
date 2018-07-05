@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import { slugify, deslugify } from '~/assets/helpers.js';
 
 Vue.mixin({
   methods: {
@@ -14,6 +15,8 @@ Vue.mixin({
         descriptionParts.push(photo.place.fields.name + ', ' + photo.place.fields.country);
       }
       return descriptionParts.join('<br />');
-    }
+    },
+    slugify,
+    deslugify
   }
 })

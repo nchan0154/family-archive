@@ -48,6 +48,6 @@ module.exports = {
   ],
   plugins: [
     { src: '~/plugins/v-tooltip.js' },
-    { src: '~/plugins/caption.js' },
+    { src: '~/plugins/helpers.js' },
   ],
 }
