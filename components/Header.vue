@@ -83,6 +83,7 @@ export default {
 .site-header {
   padding-top: 2rem;
   padding-bottom: 2rem;
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 .site-header__brand {

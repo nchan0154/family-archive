@@ -16,8 +16,9 @@ export default  {
     'Dorothy'
   ],
   places: [
+    'Hong Kong',
     'Melbourne',
-    'Toishan',
-    'San Francisco'
+    'San Francisco',
+    'Toishan'
   ],
 }
