@@ -154,8 +154,9 @@ export default {
 
   @media (min-width: 85em) {
     .tooltip {
-      min-width: 10rem;
+      min-width: 8.125rem;
       min-height: 8.125rem;
+      max-width: 17.75rem;
     }
   }
 }

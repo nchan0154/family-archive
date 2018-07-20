@@ -1,8 +1,11 @@
 <template>
   <div>
     <Header />
-    <main class="container" tabindex="0" ref="main">
-      <nuxt/>
+    <main tabindex="0" ref="main">
+      <!-- Can't just put this on the parent element because it's weird in IE for some reason-->
+      <div class="container">
+        <nuxt/>
+      </div>
     </main>
   </div>
 </template>
